@@ -1,0 +1,11 @@
+django==3.1.4
+numpy==1.15.1
+Pillow==8.0.1
+scipy==1.1.0
+tensorflow==2.4.0
+wget==3.2
+seaborn==0.9.0
+opencv-python3
+easydict
+#sudo kill -9 $(sudo lsof -t -i:8000)
+#line 63 utils add D
