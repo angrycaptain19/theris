@@ -128,8 +128,7 @@ class YOLOV3(object):
         return tf.concat([pred_xywh, pred_conf, pred_prob], axis=-1)
 
     def focal(self, target, actual, alpha=1, gamma=2):
-        focal_loss = alpha * tf.pow(tf.abs(target - actual), gamma)
-        return focal_loss
+        return alpha * tf.pow(tf.abs(target - actual), gamma)
 
     def bbox_giou(self, boxes1, boxes2):
 
@@ -159,10 +158,9 @@ class YOLOV3(object):
         enclose_right_down = tf.maximum(boxes1[..., 2:], boxes2[..., 2:])
         enclose = tf.maximum(enclose_right_down - enclose_left_up, 0.0)
         enclose_area = enclose[..., 0] * enclose[..., 1]
-        giou = iou - 1.0 * (enclose_area - union_area) / (enclose_area + 1e-6)
         # added 1e-6 in denominator to avoid generation of inf, which may cause nan loss
 
-        return giou
+        return iou - 1.0 * (enclose_area - union_area) / (enclose_area + 1e-6)
 
     def bbox_iou(self, boxes1, boxes2):
 
@@ -180,9 +178,7 @@ class YOLOV3(object):
         inter_section = tf.maximum(right_down - left_up, 0.0)
         inter_area = inter_section[..., 0] * inter_section[..., 1]
         union_area = boxes1_area + boxes2_area - inter_area
-        iou = 1.0 * inter_area / union_area
-
-        return iou
+        return 1.0 * inter_area / union_area
 
     def loss_layer(self, conv, pred, label, bboxes, anchors, stride):
 
