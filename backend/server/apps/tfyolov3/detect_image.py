@@ -5,7 +5,7 @@
 #   Editor      : Visualstudio
 #   File name   : detect_image.py
 #   Author      : Tan98
-#   Created date: 29-2-2021 9:30:10
+#   Created date: 28-2-2021 9:30:10
 #   Description : Test with data image
 #
 #================================================================
