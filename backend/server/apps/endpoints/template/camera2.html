@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- templatemo 419 black white -->
+    <!-- 
+    Black White
+    http://www.templatemo.com/preview/templatemo_419_black_white
+    -->
+    <title>Camera 2</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css"> {% load static %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/templatemo_style.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="templatemo-logo visible-xs-block">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg logo-left-container">
+            <h1 class="logo-left">SECURITY</h1>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg logo-right-container">
+            <h1 class="logo-right">SYSTEM</h1>
+        </div>
+    </div>
+    <div class="templatemo-container">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
+            <h1 class="logo-left hidden-xs margin-bottom-60">SECURITY</h1>
+            <div class="tm-left-inner-container">
+                <ul class="nav nav-stacked templatemo-nav">
+                    <li><a href="http://127.0.0.1:8000/index">Home</a></li>
+
+                    <li><a href="http://127.0.0.1:8000/index/camera1">Camera 1</a></li>
+
+                    <li><a href="http://127.0.0.1:8000/index/camera2">Camera 2</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- left section -->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg right-container">
+            <h1 class="logo-right hidden-xs margin-bottom-60">SYSTEM</h1>
+            <div class="tm-right-inner-container">
+
+                <h1 class="templatemo-header"></h1>
+
+
+                <article class="templatemo-item">
+                    <h2>Camera 2</h2>
+
+                    <p>
+                        <img src="{% url 'video-feed-2' %}" alt=""></br>
+                        </br>
+                    </p>
+
+                </article>
+                <hr>
+
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-7 col-sm-5">
+                                <h5>Our Address</h5>
+                                <address class="address">
+                                    86/29A Au Co<br>
+                                    Tan Binh Dir, HCM city<br>
+                                    Viet Nam<br>
+                                    <i class="fa fa-phone fa-lg"></i>: +84 356276600 <br>
+                                    <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:ndtan.hcm@gmail.com">ndtan.hcm@gmail.com</a>
+                                </address>
+                            </div>
+                            <div class="col-12 col-sm-4 align-self-center">
+                                <div class="text-center">
+                                    <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i
+                                            class="fa fa-google-plus fa-lg"></i></a>
+                                    <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i
+                                            class="fa fa-facebook fa-lg"></i></a>
+                                    <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i
+                                            class="fa fa-linkedin fa-lg"></i></a>
+                                    <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i
+                                            class="fa fa-twitter fa-lg"></i></a>
+                                    <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i
+                                            class="fa fa-youtube fa-lg"></i></a>
+                                    <a class="btn btn-social-icon btn-yahoo" href="mailto:"><i
+                                            class="fa fa-envelope-o fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col=auto">
+                                <p>© Copyright 2020 Nguyen Duy Tan</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- right section -->
+    </div>
+</body>
+
+</html>
