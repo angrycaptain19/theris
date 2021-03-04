@@ -54,10 +54,9 @@ def image_preporcess(image, target_size, gt_boxes=None):
     if gt_boxes is None:
         return image_paded
 
-    else:
-        gt_boxes[:, [0, 2]] = gt_boxes[:, [0, 2]] * scale + dw
-        gt_boxes[:, [1, 3]] = gt_boxes[:, [1, 3]] * scale + dh
-        return image_paded, gt_boxes
+    gt_boxes[:, [0, 2]] = gt_boxes[:, [0, 2]] * scale + dw
+    gt_boxes[:, [1, 3]] = gt_boxes[:, [1, 3]] * scale + dh
+    return image_paded, gt_boxes
 
 
 def draw_bbox(image, bboxes, classes=read_class_names(cfg.YOLO.CLASSESD), show_label=True):
@@ -76,10 +75,9 @@ def draw_bbox(image, bboxes, classes=read_class_names(cfg.YOLO.CLASSESD), show_l
     random.shuffle(colors)
     random.seed(None)
 
+    fontScale = 0.5
     for i, bbox in enumerate(bboxes):
         coor = np.array(bbox[:4], dtype=np.int32)
-        fontScale = 0.5
-        score = bbox[4]
         class_ind = int(bbox[5])
         bbox_color = colors[class_ind]
         bbox_thick = int(0.6 * (image_h + image_w) / 600)
@@ -87,6 +85,7 @@ def draw_bbox(image, bboxes, classes=read_class_names(cfg.YOLO.CLASSESD), show_l
         cv2.rectangle(image, c1, c2, bbox_color, bbox_thick)
 
         if show_label:
+            score = bbox[4]
             bbox_mess = '%s: %.2f' % (classes[class_ind], score)
             t_size = cv2.getTextSize(bbox_mess, 0, fontScale, thickness=bbox_thick//2)[0]
             cv2.rectangle(image, c1, (c1[0] + t_size[0], c1[1] - t_size[1] - 3), bbox_color, -1)  # filled
@@ -111,9 +110,7 @@ def bboxes_iou(boxes1, boxes2):
     inter_section = np.maximum(right_down - left_up, 0.0)
     inter_area    = inter_section[..., 0] * inter_section[..., 1]
     union_area    = boxes1_area + boxes2_area - inter_area
-    ious          = np.maximum(1.0 * inter_area / union_area, np.finfo(np.float32).eps)
-
-    return ious
+    return np.maximum(1.0 * inter_area / union_area, np.finfo(np.float32).eps)
 
 
 

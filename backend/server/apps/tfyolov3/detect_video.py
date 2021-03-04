@@ -34,11 +34,10 @@ with tf.compat.v1.Session(graph=graph) as sess:
    # print("fps:", fps)
     while True:
         return_value, frame = vid.read()
-        if return_value:
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            image = Image.fromarray(frame)
-        else:
+        if not return_value:
             raise ValueError("No image!")
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        image = Image.fromarray(frame)
         frame_size = frame.shape[:2]
         image_data = utils.image_preporcess(np.copy(frame), [input_size, input_size])
         image_data = image_data[np.newaxis, ...]
